@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="gt-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="gt-light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer ring (token border) -->
+  <circle cx="60" cy="60" r="56" fill="none" stroke="url(#gt-grad)" stroke-width="6"/>
+
+  <!-- Inner circle bg -->
+  <circle cx="60" cy="60" r="48" fill="#0f172a"/>
+
+  <!-- Stylized Leaf: a path that combines a leaf shape with an upward arrow (growth + green) -->
+  <!-- The shape is a leaf pointing up-right, with a stem connecting to the center -->
+  <path d="
+    M 60 80
+    C 55 68, 48 55, 45 45
+    C 42 35, 48 25, 58 22
+    C 68 19, 78 22, 82 30
+    C 72 28, 62 32, 58 42
+    C 54 52, 56 65, 60 80
+    Z
+  " fill="url(#gt-grad)" />
+
+  <!-- Inner vein / energy line -->
+  <path d="
+    M 60 80
+    C 58 68, 55 58, 52 48
+    C 50 42, 54 34, 60 28
+  " fill="none" stroke="#6ee7b7" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Small accent dots (sparks / energy) -->
+  <circle cx="38" cy="42" r="3" fill="#34d399" opacity="0.8"/>
+  <circle cx="78" cy="25" r="2.5" fill="#6ee7b7" opacity="0.7"/>
+  <circle cx="32" cy="50" r="2" fill="#6ee7b7" opacity="0.5"/>
+</svg>
