@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import PayPalButton from './components/PayPalButton';
 import StripeButton from './components/StripeButton';
+import SignupForm from './components/SignupForm';
 
 const plans = [
   { id: 'starter', name: 'Starter', price: '$5', tokens: '500K', quota: 500000, desc: 'Perfect for side projects and experiments', popular: false },
@@ -84,7 +85,7 @@ export default function Home() {
     const sessionId = params.get('stripe_session');
     if (!sessionId) return;
     setStripeLoading(true);
-    fetch(`https://api.cngreentk.com/stripe/check-session?session_id=${sessionId}`)
+    fetch(`https://cngreentk.com/stripe/check-session?session_id=${sessionId}`)
       .then(res => res.json())
       .then(data => {
         if (data.apiKey) {
@@ -94,6 +95,26 @@ export default function Home() {
       })
       .catch(console.error)
       .finally(() => setStripeLoading(false));
+  }, []);
+
+  // 推荐码捕获：?ref=CODE
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const refCode = params.get('ref');
+    if (!refCode) return;
+    // 验证推荐码
+    fetch(`https://cngreentk.com/affiliate/${encodeURIComponent(refCode)}`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.exists) {
+          sessionStorage.setItem('green_ref', refCode);
+          // 清理URL
+          const url = new URL(window.location.href);
+          url.searchParams.delete('ref');
+          window.history.replaceState({}, '', url.toString());
+        }
+      })
+      .catch(() => {/* invalid code, silently ignore */});
   }, []);
 
   function handleSuccess(result: { apiKey: string; plan: string; quota: number }) {
@@ -143,8 +164,9 @@ export default function Home() {
           <a href="#features" className="hover:text-white transition">Features</a>
           <a href="#pricing" className="hover:text-white transition">Pricing</a>
           <a href="#docs" className="hover:text-white transition">Docs</a>
+          <Link href="/green" className="hover:text-white transition text-emerald-400">Green</Link>
           <a href="#faq" className="hover:text-white transition">FAQ</a>
-          <a href="https://discord.gg/Sb3AfF8M" className="hover:text-white transition text-green-400" target="_blank" rel="noopener noreferrer">Discord</a>
+          <a href="https://discord.gg/tCsTAZhwaU" className="hover:text-white transition text-green-400" target="_blank" rel="noopener noreferrer">Discord</a>
           <Link href="/dashboard" className="px-4 py-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-black font-semibold transition text-sm">
             Dashboard
           </Link>
@@ -311,6 +333,11 @@ export default function Home() {
           </a>{' '}
           for custom plans.
         </p>
+
+        {/* Free Trial Signup */}
+        <div className="mt-10 flex justify-center">
+          <SignupForm />
+        </div>
       </section>
 
       {/* ── Code Examples ── */}
@@ -418,7 +445,8 @@ export default function Home() {
           <a href="/dashboard" className="hover:text-zinc-300 transition">Dashboard</a>
           <a href="/en" className="hover:text-zinc-300 transition">English</a>
           <a href="mailto:admin@cngreentk.com" className="hover:text-zinc-300 transition">Contact</a>
-          <a href="https://discord.gg/Sb3AfF8M" className="hover:text-zinc-300 transition text-green-400" target="_blank" rel="noopener noreferrer">Discord</a>
+          <a href="https://discord.gg/tCsTAZhwaU" className="hover:text-zinc-300 transition text-green-400" target="_blank" rel="noopener noreferrer">Discord</a>
+          <Link href="/affiliate" className="hover:text-zinc-300 transition text-emerald-400">Earn 20%</Link>
         </div>
         <p>&copy; {new Date().getFullYear()} Green Token. All rights reserved.</p>
         <p className="mt-1 space-x-3">

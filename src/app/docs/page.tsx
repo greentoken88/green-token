@@ -192,9 +192,9 @@ models.data.forEach(m => console.log(m.id));`,
                     ['moonshotai/Kimi-K2-Instruct-0905', 'SiliconFlow', 'Anthropic'],
                     ['Pro/moonshotai/Kimi-K2.5', 'SiliconFlow', 'Anthropic'],
                     ['Pro/zai-org/GLM-5.1', 'SiliconFlow', 'Anthropic'],
-                    ['qwen-turbo', 'Aliyun Bailian', 'OpenAI'],
+                    ['qwen3.6-flash', 'Aliyun Bailian', 'OpenAI'],
                     ['qwen-plus', 'Aliyun Bailian', 'OpenAI'],
-                    ['qwen-max', 'Aliyun Bailian', 'OpenAI'],
+                    ['qwen3.7-max', 'Aliyun Bailian', 'OpenAI'],
                     ['qwen2.5-coder-32b-instruct', 'Aliyun Bailian', 'OpenAI'],
                     ['mistralai/Mixtral-8x22B-Instruct-v0.1', 'SiliconFlow', 'OpenAI'],
                     ['THUDM/glm-4-9b-chat', 'SiliconFlow', 'OpenAI'],
@@ -517,7 +517,7 @@ for await (const chunk of stream) {
               <span className="mx-3">|</span>
               <a href="mailto:admin@cngreentk.com" className="hover:text-zinc-300 transition">Contact</a>
               <span className="mx-3">|</span>
-              <a href="https://discord.gg/Sb3AfF8M" className="hover:text-zinc-300 transition text-green-400" target="_blank" rel="noopener noreferrer">Discord</a>
+              <a href="https://discord.gg/tCsTAZhwaU" className="hover:text-zinc-300 transition text-green-400" target="_blank" rel="noopener noreferrer">Discord</a>
             </p>
             <p className="mt-1">&copy; {new Date().getFullYear()} Green Token. cngreentk.com</p>
           </footer>

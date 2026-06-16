@@ -8,7 +8,7 @@
 <p align="center">
   <a href="https://cngreentk.com"><strong>cngreentk.com</strong></a> ·
   <a href="https://cngreentk.com/docs"><strong>API Docs</strong></a> ·
-  <a href="https://discord.gg/Sb3AfF8M"><strong>Discord</strong></a>
+  <a href="https://discord.gg/tCsTAZhwaU"><strong>Discord</strong></a>
 </p>
 
 <p align="center">
@@ -217,7 +217,7 @@ Progress: **49/54** steps complete (91%).
 
 ## Community
 
-- **Discord**: [discord.gg/Sb3AfF8M](https://discord.gg/Sb3AfF8M)
+- **Discord**: [discord.gg/tCsTAZhwaU](https://discord.gg/tCsTAZhwaU)
 - **Email**: admin@cngreentk.com
 - **Website**: [cngreentk.com](https://cngreentk.com)
 
